@@ -5,24 +5,28 @@ It takes a user-supplied number and converts it into the chosen base. It is a py
 You can develop the app on Windows os as illustrated listed below.
 
 First, in your terminal, your need to create the project directory
-`mkdir <YOUR PROJECT>`
+> mkdir <YOUR PROJECT>
 
 Change directory into it
-`cd <YOUR PROJECT>`
+> cd <YOUR PROJECT>
 
 Create a virtual environment and activate it
-`python3.11 -m venv <YOUR VIRTUAL ENV NAME>`
-`source <YOUR VIRTUAL ENV NAME>/bin/activate`
+> python3.11 -m venv <YOUR VIRTUAL ENV NAME>
+> source <YOUR VIRTUAL ENV NAME>/bin/activate
 
 Install relevant packages for this project
-`pip install -r requirments.txt`
+> pip install -r requirments.txt
+
 Kivy and Kivymd libraries are the key packages
 
 Create your project files
 
 
 Run your project to test functionality
-`./main.py` or `python -m main.py`
+> ./main.py`
+
+of
+>  `python -m main.py
 
 Confirm that everything works as expected
 
@@ -45,23 +49,24 @@ For windows 11 users, you will need to:
 The next step would be to install buildozer (it is the easiest method to generate the apk file for beginners). [Instructions.](https://buildozer.readthedocs.io/en/latest/installation.html)
 
 Install the buildozer package
-`pip install --upgrade buildozer`
+> pip install --upgrade buildozer
 
 Update your linux
-`sudo apt update`
-`sudo apt upgrade -y`
+> sudo apt update
+
+> sudo apt upgrade -y
 
 Install some linux packages
-`sudo apt install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev adb`
+> sudo apt install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev adb`
 
 Install the cython library
-`pip install Cython virtualenv`
+> pip install Cython virtualenv
 
 Modify your path by adding to below line at the end of your `~/.bashrc` file
-`export PATH=$PATH:~/.local/bin/`
+> export PATH=$PATH:~/.local/bin/
 
 Exit your linux to activate the path changes
-`exit`
+> exit
 
 Then relaunch your linux
 E.g `$ bash` on windows powershell
@@ -69,7 +74,8 @@ E.g `$ bash` on windows powershell
 Activate your environment once more
 
 Create a .spec file to configure your app
-`buildozer init`
+> buildozer init
+
 This generates a `buildozer.spec` file in your project directory.
 
 Edit buildozer.spec file with an editor of your choice.
@@ -77,7 +83,8 @@ add name , package name, version no, requirements, photo paths, etc.
 
 
 Then to issue the following command.
-`buildozer android debug deploy run`
+> buildozer android debug deploy run
+
 This command will take a long time to finish, depending on your machine's specs. So waiiiiiiiiiit
 It will require you to accept some terms.
 
@@ -92,19 +99,21 @@ When the process is complete, an apk file will be generated in your project's bi
 The below steps can be done bone before running the `buidozer android ...` command
 For windows 11 users, you need to make some additions to your windows:
 - Install usbipd
-`winget install usbipd`
+> winget install usbipd
+
 - List attached devices
-`usbipd list`
+> usbipd list
+
 - Get the bus id of your android device you intend to install your app from the above list
 
 - Bind it by opening a terminal on elevated permissions:
-`usbipd bind --busid <BUS-ID>`
+> usbipd bind --busid <BUS-ID>
 
 - Then on a normal terminal, attach the android device
-`usbipd attach --wsl --busid <BUS-ID>`
+> usbipd attach --wsl --busid <BUS-ID>
 
 Back to your linux terminal, run lsusb to view if device attached to wsl(if on windows) or is available in your system.
-`lsusb`
+> lsusb
 
 On your android device:
 - Open developer options
@@ -115,15 +124,20 @@ This will happen after the apk has been generated, from automated process, or ru
 
 
 If the apk was not successfully installed, may need to install manually
-`adb kill-server`
-`adb start-server`
-`adb devices` confirm the android device is available
-`lsusb`
-`adb install binary2decimal-0.1-arm64-v8a_armeabi-v7a-debug.apk`
+> adb kill-server
+
+> adb start-server
+
+> adb devices
+
+to confirm the android device is available
+> lsusb
+
+> adb install binary2decimal-0.1-arm64-v8a_armeabi-v7a-debug.apk
 
 After a success install, it may run automatically or you can manually run your app on your android device.
 if it has some problems, run the command below then relaunch app and see the logs to identify what went wrong.
-`adb logcat`
+> adb logcat
 
 
 Your have successfully created your android app using python. Congratulations!
