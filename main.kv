@@ -1,0 +1,52 @@
+<Converter>:
+    MDScreen:
+        md_bg_color: self.theme_cls.secondaryContainerColor
+
+        MDTopAppBar:
+            type: "small"
+            pos_hint: {"top":  1}
+
+            MDTopAppBarTitle:
+                id: title
+                text: "Decimal to Binary Converter"
+                pos_hint: {"center_x": .5}
+
+            MDTopAppBarTrailingButtonContainer:
+
+                MDActionTopAppBarButton:
+                    icon: "rotate-3d-variant"
+                    on_release: root.flip()
+
+        MDTextField:
+            id: input_text
+            mode: "outlined"
+            size_hint_x: .8
+            pos_hint: {'center_x': .5, 'center_y': .7}
+            radius: [self.height*.1]
+            halign: 'center'
+
+            MDTextFieldHintText:
+                id: input_text_hint
+                text: 'Enter a decimal number'
+                halign: 'center'
+
+        MDLabel:
+            id: label
+            text: ''
+            pos_hint: { 'center_y': .5}
+            halign: 'center'
+
+        MDLabel:
+            id: result
+            text: ''
+            pos_hint: {'center_y': .45}
+            halign: 'center'
+
+        MDButton:
+            style: "elevated"
+            pos_hint: {'center_x': .5, 'center_y': .3}
+            on_release: root.convert()
+
+            MDButtonText:
+                text: 'Convert'
+
